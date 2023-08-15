@@ -10,7 +10,8 @@ const isConnect=async(userId1,userId2)=>{
 }
 
 export const makeConnect=async(req,res)=>{
-    const {userId1,userId2}=req.body;
+    const {userId2}=req.body;
+    const userId1=req.currUser._id;
     const bool=await isConnect(userId1,userId2);
     if(!bool){
         return res.status(201).json({
@@ -31,7 +32,8 @@ export const makeConnect=async(req,res)=>{
 }
 
 export const disConnect=async(req,res)=>{
-    const {userId1,userId2}=req.body;
+    const {userId2}=req.body;
+    const userId1=req.currUser._id;
     const bool=await isConnect(userId1,userId2);
     if(bool){
         return res.status(201).json({
@@ -60,7 +62,7 @@ export const disConnect=async(req,res)=>{
 }
 
 export const getAll=async(req,res)=>{
-    const {userId}=req.body;
+    const userId=req.currUser._id;
     const Data1=await connection.find({userId1:userId});
     const Data2=await connection.find({userId2:userId});
 

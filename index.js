@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("*",
     cors({
-      origin:"https://main--heartfelt-piroshki-2d7a9a.netlify.app/auth",
+      origin:["https://main--heartfelt-piroshki-2d7a9a.netlify.app/auth"],
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true,
     })

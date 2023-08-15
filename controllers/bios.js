@@ -36,18 +36,18 @@ export const addAndEdit = async (req, res) => {
   });
 };
 
-export const getBio=async(req,res)=>{
-  const userId=req.currUser._id;
-   const data=await bio.findOne({userId});
-  if(!data){
+export const getBio = async (req, res) => {
+  const userId = req.currUser._id;
+  const data = await bio.findOne({ userId });
+  if (!data) {
     return res.status(500).json({
-      success:false,
-      message:"Bio is not present",
-    })
+      success: false,
+      message: "Bio is not present",
+    });
   }
   res.status(200).json({
-    success:true,
-    message:"Bio is retrieved",
-    data
-  })
-}
+    success: true,
+    message: "Bio is retrieved",
+    data,
+  });
+};

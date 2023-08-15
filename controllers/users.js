@@ -74,10 +74,10 @@ export const login = async (req, res) => {
 };
 
 export const getAllUsers = async (req, res) => {
-  const {arrUser}=req.body;
-  const currId=req.currUser._id
-  const newArray=[...arrUser,currId];
-  const allUser = await user.find({_id:{$nin:newArray}});
+  const { arrUser } = req.body;
+  const currId = req.currUser._id;
+  const newArray = [...arrUser, currId];
+  const allUser = await user.find({ _id: { $nin: newArray } });
   res.status(200).json({
     success: true,
     message: "we have got all users",
